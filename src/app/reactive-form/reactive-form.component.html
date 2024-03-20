@@ -1,0 +1,21 @@
+<h1> {{title}}</h1>
+
+<!-- <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <input type="text" placeholder="Enter Name" formControlName="user">
+    <br><br>
+    <input type="password" placeholder="Enter Password" formControlName="password">
+    <br><br>
+    <button> Login </button>
+</form> -->
+
+
+
+<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <input type="text" placeholder="Enter Name" formControlName="user"> <br>
+    <span *ngIf="frm.user && frm.user.invalid && frm.user.touched">Please enter valid user</span>
+    <br>
+    <input type="password" placeholder="Enter Password" formControlName="password"> <br>
+    <span *ngIf="frm.password && frm.password.invalid && frm.password.touched">Please enter valid password</span>
+    <br>
+    <button [disabled]="loginForm.invalid"> Login </button>
+</form>

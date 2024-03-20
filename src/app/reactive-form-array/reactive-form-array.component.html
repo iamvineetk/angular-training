@@ -1,0 +1,25 @@
+<h1> {{ title }} </h1>
+
+<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <input type="text" placeholder="Enter Employee Name" formControlName="empName"> <br>
+    <span *ngIf="frm.empName && frm.empName.invalid && frm.empName.touched">Please enter valid employee name</span>
+    <br>
+    <input type="text" placeholder="Enter Employee ID" formControlName="empId"> <br>
+    <span *ngIf="frm.empId && frm.empId.invalid && frm.empId.touched">Please enter valid employee ID</span>
+    <br>
+
+    <ng-container formArrayName="skills">
+        <ng-container *ngFor="let skillForm of skills.controls; let i = index">
+            <div [formGroup]="skillForm">
+                <input type="text" placeholder="Add Skill" formControlName="skillName">
+                <button (click)="deleteSkill(i)">Delete</button>
+            </div>
+        </ng-container> <br>
+    </ng-container>
+    
+    <br>
+    <button (click)="addSkills()">Add skill</button>
+    <br><br>
+
+    <button [disabled]="loginForm.invalid"> Submit </button>
+</form>

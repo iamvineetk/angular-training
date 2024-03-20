@@ -1,0 +1,22 @@
+<h1> {{title}}</h1>
+
+<form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm.value)">
+    <input type="text" name="name" placeholder="Enter Name" ngModel>
+    <br><br>
+    <input type="password" name="password" placeholder="Enter Password" ngModel>
+    <br><br>
+    <button> Login </button>
+</form>
+
+<!-- <button (click)="loginUser(loginForm.value)"> Outside Login </button> -->
+
+
+<!-- <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm.value)">
+    <input type="text" required #username="ngModel" pattern="[a-zA-Z]+$" name="name" placeholder="Enter Name" ngModel> <br>
+    <span *ngIf="username.invalid && username.touched">Please enter name</span>
+    <br>
+    <input type="password" required #psword="ngModel" minlength="2" name="password" placeholder="Enter Password" ngModel> <br>
+    <span *ngIf="psword.invalid && psword.touched">Please enter password</span>
+    <br>
+    <button [disabled]="loginForm.invalid"> Login </button>
+</form> -->
